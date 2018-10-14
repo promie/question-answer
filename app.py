@@ -1,10 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, g, request
 from database import get_db
 
 app = Flask(__name__)
 
 
-# Up To Install and Templates
+# Login
 @app.teardown_appcontext
 def close_db(error):
     if hasattr(g, 'sqlite_db'):
@@ -14,6 +14,12 @@ def close_db(error):
 @app.route('/')
 def index():
     return render_template('home.html', title='Home')
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+
+    return render_template('register.html', title='Register')
 
 
 @app.route('/answer')
@@ -34,11 +40,6 @@ def login():
 @app.route('/question')
 def question():
     return render_template('question.html', title='Question')
-
-
-@app.route('/register')
-def register():
-    return render_template('register.html', title='Register')
 
 
 @app.route('/unanswered')
