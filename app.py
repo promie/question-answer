@@ -1,5 +1,6 @@
 from flask import Flask, render_template, g, request
 from database import get_db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
@@ -18,7 +19,16 @@ def index():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if request.method == 'POST':
+        db = get_db()
+        name = request.form['name']
+        hashed_password = generate_password_hash(request.form['password'], method='sha256')
 
+        db.execute('INSERT INTO users (name, password, expert, admin) VALUES (?,?,?,?)',\
+                   [name, hashed_password, '0', '0'])
+        db.commit()
+
+        return f'<h1>New User Created</h1>'
     return render_template('register.html', title='Register')
 
 
