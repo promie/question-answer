@@ -3,7 +3,9 @@ import sqlite3
 
 def connect_db():
     # Running on Local Server - Macbook
-    sql = sqlite3.connect('/Users/promieyutasane/Dropbox/Github/question-answer/qa.db')
+    # sql = sqlite3.connect('/Users/promieyutasane/Dropbox/Github/question-answer/qa.db')
+    # Running on the local machine - windows
+    sql = sqlite3.connect(r'C:\Users\pyutasane\Dropbox\Github\question-answer\qa.db')
     sql.row_factory = sqlite3.Row
     return sql
 
