@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 
-# Login
+# Session
 @app.teardown_appcontext
 def close_db(error):
     if hasattr(g, 'sqlite_db'):
@@ -42,8 +42,27 @@ def ask():
     return render_template('ask.html', title='Ask')
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        db = get_db()
+        name = request.form['name']
+        password = request.form['password']
+
+        user_cur = db.execute('''
+                    SELECT
+                        id, name, password
+                    FROM
+                        users
+                    WHERE
+                        name = ?
+        ''', [name])
+        user_result = user_cur.fetchone()
+
+        if check_password_hash(user_result['password'], password):
+            return '<h1>The password that you have entered is correct</h1>'
+        else:
+            return '<h1>The password that you have entered is incorrect</h1>'
     return render_template('login.html', title='Login')
 
 
