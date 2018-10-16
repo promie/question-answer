@@ -59,7 +59,7 @@ def login():
                         users
                     WHERE
                         name = ?
-        ''',[name])
+        ''', [name])
         user_result = user_cur.fetchone()
 
         if check_password_hash(user_result['password'], password):
