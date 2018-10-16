@@ -5,6 +5,7 @@ import os
 
 
 app = Flask(__name__)
+# The secret key is necessary for the session to work
 app.config['SECRET_KEY'] = os.urandom(24)
 
 
@@ -17,7 +18,10 @@ def close_db(error):
 
 @app.route('/')
 def index():
-    return render_template('home.html', title='Home')
+    user = None
+    if 'user' in session:
+        user = session['user']
+    return render_template('home.html', title='Home', user=user)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -63,7 +67,7 @@ def login():
         user_result = user_cur.fetchone()
 
         if check_password_hash(user_result['password'], password):
-            return '<h1>The password that you have entered is correct</h1>'
+            session['user'] = user_result['name']
         else:
             return '<h1>The password that you have entered is incorrect</h1>'
     return render_template('login.html', title='Login')
