@@ -1,8 +1,11 @@
-from flask import Flask, render_template, g, request
+from flask import Flask, render_template, g, request, session
 from database import get_db
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
+
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(24)
 
 
 # Session
@@ -56,7 +59,7 @@ def login():
                         users
                     WHERE
                         name = ?
-        ''', [name])
+        ''',[name])
         user_result = user_cur.fetchone()
 
         if check_password_hash(user_result['password'], password):
