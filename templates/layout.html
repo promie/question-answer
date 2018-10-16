@@ -34,7 +34,7 @@
             <li><a href="{{ url_for('answer') }}">Answer Questions</a></li>
             <li><a href="{{ url_for('users') }}">User Setup</a></li>
             {% if user %}
-                <li><a href="#">Logout</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
