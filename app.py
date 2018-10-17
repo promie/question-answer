@@ -87,6 +87,9 @@ def login():
 
         if check_password_hash(user_result['password'], password):
             session['user'] = user_result['name']
+            return f'''
+                <h1>The password you have entered is correct<h1>
+            '''
         else:
             return '<h1>The password that you have entered is incorrect</h1>'
     return render_template('login.html', title='Login', user=user)
