@@ -51,7 +51,9 @@ def register():
                    [name, hashed_password, '0', '0'])
         db.commit()
 
-        return f'<h1>New User Created</h1>'
+        # Session created as soon as a new user is registered
+        session['user'] = request.form['name']
+        return redirect(url_for('index'))
     return render_template('register.html', title='Register', user=user)
 
 
@@ -87,9 +89,7 @@ def login():
 
         if check_password_hash(user_result['password'], password):
             session['user'] = user_result['name']
-            return f'''
-                <h1>The password you have entered is correct<h1>
-            '''
+            return redirect(url_for('index'))
         else:
             return '<h1>The password that you have entered is incorrect</h1>'
     return render_template('login.html', title='Login', user=user)
