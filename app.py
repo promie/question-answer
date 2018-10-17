@@ -50,7 +50,6 @@ def register():
         db.execute('INSERT INTO users (name, password, expert, admin) VALUES (?,?,?,?)',\
                    [name, hashed_password, '0', '0'])
         db.commit()
-
         # Session created as soon as a new user is registered
         session['user'] = request.form['name']
         return redirect(url_for('index'))

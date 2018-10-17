@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="91dffb8a-a8aa-490c-a8ec-92ac26b0ff67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qa.db" beforeDir="false" afterPath="$PROJECT_DIR$/qa.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/question_answer$question_answer.coverage" NAME="question-answer Coverage Results" MODIFIED="1539808910066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/question_answer$question_answer.coverage" NAME="question-answer Coverage Results" MODIFIED="1539809850001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1014502699">
@@ -94,12 +95,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+            <state relative-caret-position="480">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="e#0#80#0" expanded="true" />
-                <marker date="1539809716799" expanded="true" signature="446:871" ph="..." />
-                <marker date="1539809716799" expanded="true" signature="3224:3295" ph="..." />
+                <marker date="1539809834580" expanded="true" signature="446:871" ph="..." />
+                <marker date="1539809834580" expanded="true" signature="3223:3294" ph="..." />
               </folding>
             </state>
           </provider>
@@ -431,12 +432,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+        <state relative-caret-position="480">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="e#0#80#0" expanded="true" />
-            <marker date="1539809716799" expanded="true" signature="446:871" ph="..." />
-            <marker date="1539809716799" expanded="true" signature="3224:3295" ph="..." />
+            <marker date="1539809834580" expanded="true" signature="446:871" ph="..." />
+            <marker date="1539809834580" expanded="true" signature="3223:3294" ph="..." />
           </folding>
         </state>
       </provider>
