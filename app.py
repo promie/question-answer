@@ -62,10 +62,27 @@ def answer():
     return render_template('answer.html', title='Answer',user=user)
 
 
-@app.route('/ask')
+@app.route('/ask', methods=['GET', 'POST'])
 def ask():
     user = get_current_user()
-    return render_template('ask.html', title='Ask',user=user)
+    db = get_db()
+
+    if request.method == 'POST':
+        db.execute('INSERT INTO questions (question_text, asked_by_id, expert_id) VALUES (?, ?, ?)',\
+                   [request.form['question'], user['id'], request.form['expert']])
+        db.commit()
+        return redirect(url_for('index'))
+
+    expert_cur = db.execute('''
+                SELECT
+                    id, name, expert
+                FROM
+                    users
+                WHERE
+                    expert = 1
+    ''')
+    expert_results = expert_cur.fetchall()
+    return render_template('ask.html', title='Ask',user=user, experts=expert_results)
 
 
 @app.route('/login', methods=['GET', 'POST'])
