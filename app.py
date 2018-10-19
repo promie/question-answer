@@ -120,7 +120,18 @@ def question():
 @app.route('/unanswered')
 def unanswered():
     user = get_current_user()
-    return render_template('unanswered.html', title="Unanswered", user=user)
+    db = get_db()
+    unanswered_cur = db.execute('''
+                    SELECT
+                        q.question_text AS question_text, u.name AS name
+                    FROM
+                        questions q
+                        JOIN users u ON u.id = q.asked_by_id
+                    WHERE
+                        q.answer_text IS NULL AND q.expert_id = ?
+    ''', [user['id']])
+    unanswered_results = unanswered_cur.fetchall()
+    return render_template('unanswered.html', title="Unanswered", user=user, unanswered_questions=unanswered_results)
 
 
 @app.route('/users')
