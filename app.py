@@ -36,7 +36,20 @@ def get_current_user():
 @app.route('/')
 def index():
     user = get_current_user()
-    return render_template('home.html', title='Home', user=user)
+    db = get_db()
+    answer_cur = db.execute('''
+                    SELECT
+                        q.id AS id, q.question_text AS question_text, u.name AS asked_user , u2.name AS expert_user
+                    FROM
+                        questions q
+                        JOIN users u ON u.id = q.asked_by_id
+                        JOIN users u2 ON u2.id = q.expert_id
+                    WHERE
+                        q.answer_text NOT NULL
+    ''')
+    answer_results = answer_cur.fetchall()
+
+    return render_template('home.html', title='Home', user=user, answers=answer_results)
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -135,8 +148,8 @@ def login():
     return render_template('login.html', title='Login', user=user)
 
 
-@app.route('/question')
-def question():
+@app.route('/question/<question_id>')
+def question(question_id):
     user = get_current_user()
     return render_template('question.html', title='Question', user=user)
 
