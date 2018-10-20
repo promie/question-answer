@@ -2,9 +2,9 @@
 
 {% block content %}
       <div class="jumbotron">
-        <h1>What?</h1>
-        <p>This is the answer.</p>
-        <p><a class="btn btn-primary btn-lg">Asked By: Herbert</a></p>
-        <p><a class="btn btn-primary btn-lg">Answered By: Anthony</a></p>
+        <h1>{{ answer.question_text }}</h1>
+        <p>{{ answer.answer_text }}</p>
+        <p><a class="btn btn-primary btn-lg">Asked By: {{ answer.asked_user }}</a></p>
+        <p><a class="btn btn-primary btn-lg">Answered By: {{ answer.expert_user }}</a></p>
       </div>
 {% endblock content %}

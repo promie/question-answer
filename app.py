@@ -151,7 +151,20 @@ def login():
 @app.route('/question/<question_id>')
 def question(question_id):
     user = get_current_user()
-    return render_template('question.html', title='Question', user=user)
+    db = get_db()
+    answer_cur = db.execute('''
+                    SELECT
+                        q.id AS id, q.question_text AS question_text, q.answer_text AS answer_text, u.name AS asked_user , u2.name AS expert_user
+                    FROM
+                        questions q
+                        JOIN users u ON u.id = q.asked_by_id
+                        JOIN users u2 ON u2.id = q.expert_id
+                    WHERE
+                        q.id = ?                
+    ''', [question_id])
+    answer_result = answer_cur.fetchone()
+
+    return render_template('question.html', title='Question', user=user, answer=answer_result)
 
 
 @app.route('/unanswered')
