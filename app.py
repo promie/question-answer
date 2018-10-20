@@ -56,10 +56,23 @@ def register():
     return render_template('register.html', title='Register', user=user)
 
 
-@app.route('/answer/<question_id>')
+@app.route('/answer/<question_id>', methods=['GET', 'POST'])
 def answer(question_id):
     user = get_current_user()
     db = get_db()
+
+    if request.method == 'POST':
+        db.execute('''
+            UPDATE
+                questions
+            SET
+                answer_text = ?
+            WHERE
+                id = ?
+        ''', [request.form['answer'], question_id])
+        db.commit()
+        return redirect(url_for('unanswered'))
+
     question_cur = db.execute('''
                     SELECT
                         id, question_text
