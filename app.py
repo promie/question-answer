@@ -126,8 +126,6 @@ def ask():
     if not user:
         return redirect(url_for('login'))
 
-    if user['expert'] == 0:
-        return redirect(url_for('index'))
 
     db = get_db()
 
