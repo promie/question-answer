@@ -56,10 +56,21 @@ def register():
     return render_template('register.html', title='Register', user=user)
 
 
-@app.route('/answer')
-def answer():
+@app.route('/answer/<question_id>')
+def answer(question_id):
     user = get_current_user()
-    return render_template('answer.html', title='Answer',user=user)
+    db = get_db()
+    question_cur = db.execute('''
+                    SELECT
+                        id, question_text
+                    FROM
+                        questions
+                    WHERE
+                        id = ?
+    ''', [question_id])
+    question_result = question_cur.fetchone()
+
+    return render_template('answer.html', title='Answer', user=user, question=question_result)
 
 
 @app.route('/ask', methods=['GET', 'POST'])
@@ -123,7 +134,7 @@ def unanswered():
     db = get_db()
     unanswered_cur = db.execute('''
                     SELECT
-                        q.question_text AS question_text, u.name AS name
+                        q.id AS id, q.question_text AS question_text, u.name AS name
                     FROM
                         questions q
                         JOIN users u ON u.id = q.asked_by_id
