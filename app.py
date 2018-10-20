@@ -89,6 +89,9 @@ def answer(question_id):
     if not user:
         return redirect(url_for('login'))
 
+    if user['expert'] == 0:
+        return redirect(url_for('index'))
+
     db = get_db()
 
     if request.method == 'POST':
@@ -122,6 +125,9 @@ def ask():
 
     if not user:
         return redirect(url_for('login'))
+
+    if user['expert'] == 0:
+        return redirect(url_for('index'))
 
     db = get_db()
 
@@ -195,6 +201,9 @@ def unanswered():
     if not user:
         return redirect(url_for('login'))
 
+    if user['expert'] == 0:
+        return redirect(url_for('index'))
+
     db = get_db()
     unanswered_cur = db.execute('''
                     SELECT
@@ -216,6 +225,9 @@ def users():
     if not user:
         return redirect(url_for('login'))
 
+    if user['admin'] == 0:
+        return redirect(url_for('index'))
+
     db = get_db()
     user_cur = db.execute('''
                 SELECT
@@ -234,6 +246,9 @@ def promoted(user_id):
 
     if not user:
         return redirect(url_for('login'))
+
+    if user['admin'] == 0:
+        return redirect(url_for('index'))
 
     db = get_db()
     db.execute('''
