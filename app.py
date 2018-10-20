@@ -85,6 +85,10 @@ def register():
 @app.route('/answer/<question_id>', methods=['GET', 'POST'])
 def answer(question_id):
     user = get_current_user()
+
+    if not user:
+        return redirect(url_for('login'))
+
     db = get_db()
 
     if request.method == 'POST':
@@ -115,6 +119,10 @@ def answer(question_id):
 @app.route('/ask', methods=['GET', 'POST'])
 def ask():
     user = get_current_user()
+
+    if not user:
+        return redirect(url_for('login'))
+
     db = get_db()
 
     if request.method == 'POST':
@@ -183,6 +191,10 @@ def question(question_id):
 @app.route('/unanswered')
 def unanswered():
     user = get_current_user()
+
+    if not user:
+        return redirect(url_for('login'))
+
     db = get_db()
     unanswered_cur = db.execute('''
                     SELECT
@@ -200,6 +212,10 @@ def unanswered():
 @app.route('/users')
 def users():
     user = get_current_user()
+
+    if not user:
+        return redirect(url_for('login'))
+
     db = get_db()
     user_cur = db.execute('''
                 SELECT
@@ -214,6 +230,11 @@ def users():
 
 @app.route('/promoted/<user_id>')
 def promoted(user_id):
+    user = get_current_user()
+
+    if not user:
+        return redirect(url_for('login'))
+
     db = get_db()
     db.execute('''
         UPDATE
