@@ -78,7 +78,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="1454" />
-          <entry key="md" value="2721" />
+          <entry key="md" value="2737" />
           <entry key="py" value="3649" />
           <entry key="sql" value="340" />
         </counts>
@@ -86,7 +86,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1454" />
-          <entry key="Markdown" value="2721" />
+          <entry key="Markdown" value="2737" />
           <entry key="Python" value="3633" />
           <entry key="SQL" value="356" />
         </counts>
@@ -111,8 +111,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1325">
-                <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+              <first_editor relative-caret-position="738">
+                <caret line="72" column="78" selection-start-line="72" selection-start-column="78" selection-end-line="72" selection-end-column="78" />
               </first_editor>
               <second_editor />
             </state>
@@ -259,6 +259,17 @@
             <path>
               <item name="question-answer" type="b2602c69:ProjectViewProjectNode" />
               <item name="question-answer" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="question-answer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="question-answer" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="question-answer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="question-answer" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -275,6 +286,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/img" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -449,8 +465,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1325">
-            <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+          <first_editor relative-caret-position="738">
+            <caret line="72" column="78" selection-start-line="72" selection-start-column="78" selection-end-line="72" selection-end-column="78" />
           </first_editor>
           <second_editor />
         </state>

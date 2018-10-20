@@ -54,6 +54,22 @@ from flask import Flask, session
 
 ### Preview #1
 
-![alt text](https://github.com/promie/food-tracker-app/blob/master/img/preview-1.PNG "Main App")
+![alt text](https://github.com/promie/question-answer/blob/master/static/img/1.png "Main App")
+
+### Preview #2
+
+![alt text](https://github.com/promie/question-answer/blob/master/static/img/2.png "Main App")
+
+### Preview #3
+
+![alt text](https://github.com/promie/question-answer/blob/master/static/img/3.png "Main App")
+
+### Preview #4
+
+![alt text](https://github.com/promie/question-answer/blob/master/static/img/4.png "Main App")
+
+### Preview #5
+
+![alt text](https://github.com/promie/question-answer/blob/master/static/img/5.png "Main App")
 
 
