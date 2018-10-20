@@ -6,6 +6,9 @@
       </div>
         <div class="row">
           <div class="col-lg-12">
+          {% if error %}
+              {{ error }}
+          {% endif %}
             <div class="well bs-component">
               <form class="form-horizontal" method="POST" action="{{ url_for('login') }}">
                 <fieldset>

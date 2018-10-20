@@ -152,6 +152,7 @@ def ask():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     user = get_current_user()
+    error = None
     if request.method == 'POST':
         db = get_db()
         name = request.form['name']
@@ -167,12 +168,15 @@ def login():
         ''', [name])
         user_result = user_cur.fetchone()
 
-        if check_password_hash(user_result['password'], password):
-            session['user'] = user_result['name']
-            return redirect(url_for('index'))
+        if user_result:
+            if check_password_hash(user_result['password'], password):
+                session['user'] = user_result['name']
+                return redirect(url_for('index'))
+            else:
+                error = 'The password is incorrect!'
         else:
-            return '<h1>The password that you have entered is incorrect</h1>'
-    return render_template('login.html', title='Login', user=user)
+            error = 'The username is incorrect!'
+    return render_template('login.html', title='Login', user=user, error=error)
 
 
 @app.route('/question/<question_id>')
